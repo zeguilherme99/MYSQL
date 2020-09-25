@@ -1,0 +1,72 @@
+create database db_RH2
+
+use db_RH2;
+-- criar uma tabela
+create table tb_funcionarios(
+ id bigint auto_increment,
+ nome varchar(255) not null,
+ cargo varchar(255) not null,
+ idade int not null,
+ salario float,
+ primary key (id),
+ foreign key (cargo) references tb_cargo (id)
+ );
+
+use db_RH2;
+-- criar tabela cargo
+create table tb_cargo(
+id bigint auto_increment,
+porcentagem_salario_extra int,
+area varchar(255),
+primary key (id)
+);
+
+insert into tb_cargo (porcentagem_salario_extra, area)
+	values (15, "Escrivao");
+insert into tb_cargo (porcentagem_salario_extra, area)
+	values (27, "Diretor");
+insert into tb_cargo (porcentagem_salario_extra, area)
+	values (7, "Administrador");
+insert into tb_cargo (porcentagem_salario_extra, area)
+	values (4, "Seguranca");
+insert into tb_cargo (porcentagem_salario_extra, area)
+	values (5, "Recepcionista");
+
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Cleiton", 1, 25, 5000);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Jobson", 2, 25, 4750);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Maria", 3, 25, 4500);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Kauan", 4, 25, 3000);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Matheus", 5, 25, 2000);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Henrique", 5, 25, 1000);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Guilherme", 5, 25, 1500);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("José", 4, 25, 1250);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Hugo", 3, 25, 4000);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Caio", 2, 25, 5000);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Travis", 4, 25, 7000);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("JustinBieber", 2, 25, 4500);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Xampson", 3, 25, 5600);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Khaled", 4, 25, 4500);
+insert into tb_funcionarios( nome, cargo_id, idade, salario)
+	values ("Cleiton", 3, 25, 2500);
+
+select * from tb_funcionarios where salario > 2000;
+
+
+select * from tb_funcionarios where salario > 1000 and salario <2000;
+
+select * from  tb_funcionarios where nome like "%c%";
+
